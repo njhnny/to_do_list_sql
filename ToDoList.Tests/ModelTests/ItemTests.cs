@@ -1,3 +1,4 @@
+using MySql.Data.MySqlClient;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using ToDoList.Models;
@@ -5,6 +6,7 @@ using System;
 
 namespace ToDoList.Tests
 {
+
   [TestClass]
   public class ItemTests : IDisposable
   {
@@ -13,7 +15,6 @@ namespace ToDoList.Tests
     {
       Item.ClearAll();
     }
-
     public ItemTests()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=to_do_list_test;";
@@ -57,7 +58,7 @@ namespace ToDoList.Tests
     }
 
     [TestMethod]
-    public void GetAll_ReturnsEmptyList_ItemList()
+    public void GetAll_ReturnsEmptyListFromDatabase_ItemList()
     {
       // Arrange
       List<Item> newList = new List<Item> { };
