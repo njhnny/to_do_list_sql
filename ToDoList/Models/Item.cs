@@ -6,7 +6,7 @@ namespace ToDoList.Models
   public class Item
   {
     public string Description { get; set; }
-    public int Id { get; }
+    public int Id { get; set;}
 
     public void Save()
     {
@@ -22,7 +22,7 @@ namespace ToDoList.Models
       description.Value = this.Description;
       cmd.Parameters.Add(description);    
       cmd.ExecuteNonQuery();
-      // Id = cmd.LastInsertedId;
+      Id = cmd.LastInsertedId;
 
       // End new code
 
